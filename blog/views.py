@@ -9,5 +9,5 @@ def post_list(request):
     
     models.pyに定義した、ポストの内容を保存するためのモデルPostにあるものを表示する
     """
-    post = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {})
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts', posts})
